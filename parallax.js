@@ -72,18 +72,18 @@
     self.positionY = positions[1];
 
     if (this.positionX != 'left' && this.positionX != 'right') {
-      if (isNaN(parseInt(this.positionX))) {
+      if (isNaN(parseInt(this.positionX, 10))) {
         this.positionX = 'center';
       } else {
-        this.positionX = parseInt(this.positionX);
+        this.positionX = parseInt(this.positionX, 10);
       }
     }
 
     if (this.positionY != 'top' && this.positionY != 'bottom') {
-      if (isNaN(parseInt(this.positionY))) {
+      if (isNaN(parseInt(this.positionY, 10))) {
         this.positionY = 'center';
       } else {
-        this.positionY = parseInt(this.positionY);
+        this.positionY = parseInt(this.positionY, 10);
       }
     }
 
@@ -223,14 +223,14 @@
       this.offsetTop = this.offsetBaseTop - this.mirrorTop * (1 - this.speed);
 
       this.$mirror.css({
-        transform: 'translate3d('+this.mirrorLeft+'px, '+this.mirrorTop - overScroll+'px, 0px)',
+        transform: 'translate3d('+this.mirrorLeft+'px, '+(this.mirrorTop-overScroll)+'px, 0px)',
         visibility: this.visibility,
         height: this.boxHeight,
         width: this.boxWidth
       });
 
       this.$slider.css({
-        transform: 'translate3d('+this.offsetTop+'px, '+this.offsetLeft+'px, 0px)',
+        transform: 'translate3d('+this.offsetLeft+'px, '+this.offsetTop+'px, 0px)',
         position: 'absolute',
         height: this.imageHeight,
         width: this.imageWidth,
